@@ -59,6 +59,9 @@ public class NitriteController {
         Blog blog = new Blog("shed");
         blogStore.insert(blog);
 
-        return blogStore.find().toList();
+        org.dizitart.no2.objects.Cursor<Blog> results = blogStore.find();
+        logger.debug("results.size()={}", results.size());
+
+        return results.toList();
     }
 }
