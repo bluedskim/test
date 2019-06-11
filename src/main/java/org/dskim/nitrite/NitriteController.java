@@ -1,6 +1,7 @@
 package org.dskim.nitrite;
 
 import org.dizitart.no2.*;
+import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.util.Iterables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +24,8 @@ public class NitriteController {
     @Autowired
     Nitrite nitrite;
 
-    @GetMapping(value = "", produces = "application/json")
-    public List<Document> nitrite() {
+    @GetMapping(value = "/documentTest", produces = "application/json")
+    public List<Document> documentTest() {
         // Create a NitriteController Collection
         NitriteCollection collection = nitrite.getCollection("test");
 
@@ -49,5 +50,15 @@ public class NitriteController {
         logger.debug("results.size()={}", results.size());
 
         return results.toList();
+    }
+
+    @GetMapping(value = "/getRepositoryTest", produces = "application/json")
+    public List<Blog> getRepositoryTest() {
+        ObjectRepository<Blog> blogStore = nitrite.getRepository(Blog.class);
+
+        Blog blog = new Blog("shed");
+        blogStore.insert(blog);
+
+        return blogStore.find().toList();
     }
 }
