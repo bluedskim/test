@@ -1,0 +1,11 @@
+spring:
+  main:
+    banner-mode: "off"
+
+logging:
+  level:
+    org.dskim: DEBUG
+  pattern:
+    #    console: "%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5p) %green(%c{1}):%L - %m%n"
+    #    console: "%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5p) %green(%M):%L - %m%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5p) %green(%c{1}.%M):%L - %m%n"

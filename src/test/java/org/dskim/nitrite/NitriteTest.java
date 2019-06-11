@@ -30,7 +30,7 @@ public class NitriteTest {
                 .openOrCreate()
                 ;
 
-        // Create a Nitrite Collection
+        // Create a NitriteController Collection
         NitriteCollection collection = db.getCollection("test");
 
         stat.put("name", "stat");
@@ -61,7 +61,7 @@ public class NitriteTest {
                 .openOrCreate()
                 ;
 
-        // Create a Nitrite Collection
+        // Create a NitriteController Collection
         NitriteCollection collection = db.getCollection("test");
 
         Cursor results = collection.find(Filters.eq("name", "stat"));
@@ -83,7 +83,7 @@ public class NitriteTest {
         db.close();
     }
 
-    @Test
+    //@Test
     public void t2_dontClose() {
         Nitrite db = Nitrite.builder()
                 .compressed()
